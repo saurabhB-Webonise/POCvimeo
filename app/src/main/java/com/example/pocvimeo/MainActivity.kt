@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     fun initView() {
         // ---- Initial UI Setup ----
         mProgressDialog = ProgressDialog(this)
-        mProgressDialog?.setMessage("All of your API are belong to us...")
+        mProgressDialog?.setMessage("Api call in progress..")
         rv_videoList = findViewById(R.id.videoList)
     }
 
@@ -58,9 +58,11 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    fun gotVideoScreen(string: String) {
-        val intent = Intent(this, VideoActivity::class.java)
+    fun gotVideoScreen(string: String,name:String) {
+        val intent = Intent(this, VideoResolutionList::class.java)
         intent.putExtra("VIDEO_ID", string)
+        intent.putExtra("VIDEO_NAME",name)
+        intent.putExtra("Dummy","https://vod-progressive.akamaized.net/exp=1595871681~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3305%2F17%2F441527014%2F1931891946.mp4~hmac=d38aeadac62f9e201a764e9a36e8ef0af5e97199222a03509296f2da7b866d3b/vimeo-prod-skyfire-std-us/01/3305/17/441527014/1931891946.mp4")
         startActivity(intent)
     }
 
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         rv_videoList?.adapter = AdapterVideoList(videoList, object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 var obj =p0?.getTag() as Video
-                gotVideoScreen(obj.uri)
+                gotVideoScreen(obj.uri,obj.name)
             }
         })
         mProgressDialog?.hide()

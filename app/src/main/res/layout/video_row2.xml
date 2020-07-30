@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/layout"
     android:background="?attr/selectableItemBackground"
-
-    android:padding="10dp">
+        android:padding="10dp">
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -33,6 +32,24 @@
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toEndOf="@+id/iv_logo"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_duration" />
+
+    <TextView
+        android:id="@+id/tv_resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_quality" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
